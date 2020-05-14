@@ -85,11 +85,11 @@ public final class Parser {
     }
 
     private static final String arguments = "optional arguments:\n" +
-            " -d           : extract message\n" +
-            " -e           : embed message\n" +
-            " -s IMAGE     : source image\n" +
-            " -r IMAGE     : result image\n" +
-            " -m METHOD    : DCT or LSB\n" +
-            " -k KEY_FILE  : binary key file [required for DCT]\n" +
-            " -t TEXT_FILE : secret message";
+            "  -d           : extract message\n" +
+            "  -e           : embed message\n" +
+            "  -s IMAGE     : source image\n" +
+            "  -r IMAGE     : result image\n" +
+            "  -m METHOD    : DCT or LSB\n" +
+            "  -k KEY_FILE  : binary key file [required for DCT]\n" +
+            "  -t TEXT_FILE : secret message";
 }

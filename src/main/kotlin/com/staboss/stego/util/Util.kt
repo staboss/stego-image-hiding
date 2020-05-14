@@ -5,34 +5,34 @@ import kotlin.system.exitProcess
 val math = Math
 
 /**
- * Дополняет двоичную последовательность нулями
+ * Supplements the binary sequence with zeros
  *
- * @param bits кодировка
- * @return двоичное представление кратное [bits]
+ * @param bits coding (bits per symbol)
+ * @return binary representation multiple of [bits]
  */
 fun String.toCorrectBinaryLength(bits: Int = 8) = "0".repeat(bits - length % bits) + this
 
 /**
- * Преобразует число в его двоичный формат
+ * Converts a number to its binary format
  *
- * @param bits кодировка
- * @return двоичное представление числа
+ * @param bits coding (bits per symbol)
+ * @return binary representation of a number
  */
 fun Int.toBinary(bits: Int = 8): String = toString(radix = 2).toCorrectBinaryLength(bits)
 
 /**
- * Преобразует символ в его двоичный формат
+ * Converts a character to its binary format
  *
- * @param bits кодировка
- * @return двоичное представление символа
+ * @param bits coding (bits per symbol)
+ * @return binary representation of a character
  */
 fun Char.toBinary(bits: Int = 8): String = toInt().toString(radix = 2).toCorrectBinaryLength(bits)
 
 /**
- * Преобразует строку в двоичное представление
+ * Converts a string to binary representation
  *
- * @param bits кодировка
- * @return массив битов
+ * @param bits coding (bits per symbol)
+ * @return binary string
  */
 fun String.toBinary(bits: Int = 8): String =
     map { char -> char.toBinary(bits) }
@@ -41,10 +41,10 @@ fun String.toBinary(bits: Int = 8): String =
         .joinToString("")
 
 /**
- * Преобразует строку битов в текст
+ * Converts a string of bits to text
  *
- * @param bits кодировка
- * @return текст
+ * @param bits coding (bits per symbol)
+ * @return text
  */
 fun String.toText(bits: Int = 8): String =
     chunked(bits)
@@ -52,9 +52,9 @@ fun String.toText(bits: Int = 8): String =
         .joinToString("")
 
 /**
- * Вывод ошибки
+ * Error output
  *
- * @param message сообщение об ошибке
+ * @param message error message
  */
 fun errorMessage(message: String): Nothing {
     System.err.println(message)
@@ -62,10 +62,10 @@ fun errorMessage(message: String): Nothing {
 }
 
 /**
- * Время выполнения дейстия [action]
+ * Measures [action] execution time
  *
- * @param action действие
- * @return время в мс
+ * @param action action
+ * @return time (ms)
  */
 inline fun measureTime(action: () -> Unit): Long {
     val startTime = System.currentTimeMillis()
@@ -75,11 +75,11 @@ inline fun measureTime(action: () -> Unit): Long {
 }
 
 /**
- * Двойной цикл for
+ * Double FOR loop
  *
- * @param firstRange количество итераций в главном цикле
- * @param secondRange количество итераций во вложенном цикле
- * @param action действие, которое принимает индексы двойного цикла
+ * @param firstRange number of iterations in the main loop
+ * @param secondRange number of iterations in the nested loop
+ * @param action action that takes double loop indices
  */
 inline fun doubleLoop(firstRange: Int, secondRange: Int, action: (Int, Int) -> Unit) {
     for (i in 0 until firstRange) {

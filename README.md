@@ -1,4 +1,4 @@
-# Hiding data in images using steganography techniques (LSB and DCT)
+# Hiding data in images using steganography techniques
 The Kotlin program, based on steganography methods, for hiding information in images using the Least Significant Bit (LSB) and Discrete Cosine Transform (DCT) methods.
 
 ## Requirements

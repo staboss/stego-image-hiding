@@ -9,24 +9,11 @@ import kotlin.math.sqrt
 object Math {
 
     /**
-     * Рассчитывает значение PSNR двух изображений
+     * Computes the MSE value of two images
      *
-     * @param image1 изображение 1
-     * @param image2 изображение 2
-     * @return значение PSNR
-     */
-    fun psnr(image1: BufferedImage, image2: BufferedImage): String {
-        val mse = mse(image1, image2)
-        val psnr = 10.0 * log10(255.0.pow(2.0) / mse)
-        return String.format("%.4f", psnr).replace(",", ".")
-    }
-
-    /**
-     * Рассчитывает значение MSE двух изображений
-     *
-     * @param image1 изображение 1
-     * @param image2 изображение 2
-     * @return значение RMSE
+     * @param image1 Image 1
+     * @param image2 Image 2
+     * @return MSE value
      */
     fun mse(image1: BufferedImage, image2: BufferedImage): Double {
         assert(
@@ -48,11 +35,24 @@ object Math {
     }
 
     /**
-     * Рассчитывает значение RMSE двух изображений
+     * Computes the PSNR value of two images
      *
-     * @param image1 изображение 1
-     * @param image2 изображение 2
-     * @return значение RMSE
+     * @param image1 Image 1
+     * @param image2 Image 2
+     * @return PSNR value
+     */
+    fun psnr(image1: BufferedImage, image2: BufferedImage): String {
+        val mse = mse(image1, image2)
+        val psnr = 10.0 * log10(255.0.pow(2.0) / mse)
+        return String.format("%.4f", psnr).replace(",", ".")
+    }
+
+    /**
+     * Computes the RMSE value of two images
+     *
+     * @param image1 Image 1
+     * @param image2 Image 2
+     * @return RMSE value
      */
     fun rmse(image1: BufferedImage, image2: BufferedImage): String {
         val mse = mse(image1, image2)
@@ -61,9 +61,9 @@ object Math {
     }
 
     /**
-     * Логарифм по основанию 10
+     * Log base 10
      *
-     * @param x значение логарифма
+     * @param x double value
      * @return log10(x)
      */
     fun log10(x: Double): Double {

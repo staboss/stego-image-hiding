@@ -100,11 +100,11 @@ class DCT(imagePath: String) : Image(imagePath), Method {
 
         for (i in 0 until m) {
             for (j in 0 until n) {
-                // ci и cj зависят от частоты, а также от количества строк и столбцов матрицы
+                // ci and cj depend on the frequency, as well as on the number of rows and columns of the matrix
                 ci = if (i == 0) 1 / sqrt(m.toDouble()) else sqrt(2.0) / sqrt(m.toDouble())
                 cj = if (j == 0) 1 / sqrt(n.toDouble()) else sqrt(2.0) / sqrt(n.toDouble())
 
-                // sum временно хранит сумму косинус-сигналов
+                // 'sum' temporarily stores the sum of cosine signals
                 sum = 0.0
                 for (k in 0 until m) {
                     for (l in 0 until n) {

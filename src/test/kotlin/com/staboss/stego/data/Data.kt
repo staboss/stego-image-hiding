@@ -4,7 +4,7 @@ import java.io.File
 
 const val srcIMG = "src/test/resources/src.bmp"
 const val resIMG = "src/test/resources/res.bmp"
-const val keyBin = "src/test/resources/key.bin"
+const val keyBin = "src/test/resources/key.txt"
 
 const val file256 = "src/test/resources/text256.txt"
 const val file4096 = "src/test/resources/text4096.txt"

@@ -24,16 +24,9 @@ internal class DCTTest {
     }
 
     @Test
-    fun `medium text test`() {
+    fun `large text test`() {
         dct.embed(text4096, resIMG, keyBin)
         extracted = dct.extract(keyBin)
-        Assert.assertEquals(text256, extracted)
-    }
-
-    @Test
-    fun `large text test`() {
-        dct.embed(text65536, resIMG, keyBin)
-        extracted = dct.extract(keyBin)
-        Assert.assertEquals(text256, extracted)
+        Assert.assertEquals(text4096, extracted)
     }
 }

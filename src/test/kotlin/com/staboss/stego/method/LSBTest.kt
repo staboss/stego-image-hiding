@@ -24,16 +24,9 @@ internal class LSBTest {
     }
 
     @Test
-    fun `medium text test`() {
+    fun `large text test`() {
         lsb.embed(text4096, resIMG, "")
         extracted = lsb.extract(keyBin)
-        Assert.assertEquals(text256, extracted)
-    }
-
-    @Test
-    fun `large text test`() {
-        lsb.embed(text65536, resIMG, "")
-        extracted = lsb.extract(keyBin)
-        Assert.assertEquals(text256, extracted)
+        Assert.assertEquals(text4096, extracted)
     }
 }

@@ -56,8 +56,8 @@ public final class Parser {
             if (method.isEmpty()) {
                 throw new IllegalArgumentException("Method type is empty! Please, specify DCT or LSB");
             }
-            if (embed && messageFile.isEmpty()) {
-                throw new IllegalArgumentException("Secret message is required for embedding! Check option -m");
+            if (embed && messageFile == null) {
+                throw new IllegalArgumentException("Secret message is required for embedding! Check option -f");
             }
             if (!method.toLowerCase().equals("dct") && !method.toLowerCase().equals("lsb")) {
                 throw new IllegalArgumentException("Method type does not exist! Please, specify DCT or LSB");

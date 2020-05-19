@@ -47,7 +47,16 @@ class DCT(imagePath: String) : Image(imagePath), Method {
                 for (k in 0 until m) {
                     for (l in 0 until n) {
                         if (dctCoefficients[k][l] < 0) {
-                            if (pos >= binaryString.length) break@loop
+                            if (pos >= binaryString.length) {
+                                break@loop
+                            }
+                            /*
+                                The coefficient [0, 0] is the most important coefficient
+                                that is responsible for the brightness of the block.
+
+                                Example: math.changeLSB(color[i + k][j + l] / 6, binaryString[pos++])
+                                -> The resulting image will have a blue tint.
+                            */
                             color[i + k][j + l] = math.changeLSB(color[i + k][j + l], binaryString[pos++])
                             oos.writeBoolean(true)
                         } else {

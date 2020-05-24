@@ -26,9 +26,11 @@ object Math {
         val r2: Raster = image2.raster
 
         var mse = 0.0
-        for (j in 0 until h)
-            for (i in 0 until w)
+        for (j in 0 until h) {
+            for (i in 0 until w) {
                 mse += (r1.getSample(i, j, 0) - r2.getSample(i, j, 0).toDouble()).pow(2.0)
+            }
+        }
 
         mse /= (w * h).toDouble()
         return mse

@@ -25,13 +25,17 @@ fun main(args: Array<String>) {
         }
     }
 
-    method = if (parser.method == "DCT") DCT(parser.sourceFile) else LSB(parser.sourceFile)
+    method = if (parser.method.toLowerCase() == "dct") DCT(parser.sourceFile) else LSB(parser.sourceFile)
 
     if (parser.embed) {
         val messageFile = File(parser.messageFile)
-        if (!messageFile.exists()) errorMessage("Secret file does not exists!")
+        if (!messageFile.exists()) {
+            errorMessage("Secret file does not exists!")
+        }
+
         val secretMessage = messageFile.readText()
         method.embed(secretMessage, parser.resultFile, parser.keyFile ?: "secretKey.txt")
+
         println("stego-img: ${File(parser.resultFile).absolutePath}")
         if (parser.method.toLowerCase() == "dct") {
             println("stego-key: ${File(parser.keyFile).absolutePath}")
